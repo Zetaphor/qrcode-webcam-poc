@@ -9,14 +9,16 @@ navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 
 function gotSources(sourceInfos) {
     for (var i = 0; i !== sourceInfos.length; ++i) {
+
+
         var sourceInfo = sourceInfos[i];
         var option = document.createElement('option');
         option.value = sourceInfo.id;
         if (sourceInfo.kind === 'video') {
-            option.text = sourceInfo.label || 'camera ' + (videoSelect.length + 1);
+            option.text = sourceInfo.label || 'Camera ' + (videoSelect.length + 1);
             videoSelect.appendChild(option);
         } else {
-            console.log('Some other kind of source: ', sourceInfo);
+            //console.log('Some other kind of source: ', sourceInfo);
         }
     }
 }

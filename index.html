@@ -7,8 +7,16 @@
         div.select {
             margin: 0 0 1em 0;
         }
-    </style>
 
+        #videoCanvas {
+            width: 640px;
+            height: 480px;
+        }
+
+        #videoStream {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -19,11 +27,41 @@
         <label for="videoSource">Video source: </label><select id="videoSource"></select>
     </div>
 
-    <video muted autoplay></video>
+    <video id="videoStream" muted autoplay></video>
+    <canvas id="qr-canvas"></canvas>
 
-    <script src="js/index.js"></script>
+    <div class="create">
+        <h4>Enter QR Data</h4>
+        <textarea cols="50" rows="5" id="qrData"></textarea>
+        <br />
+        <input type="button" id="generateQr" value="Generate QR Code">
+    </div>
 
+    <div id="qrOutput"></div>
 </div>
 
+<script type="text/javascript" src="lib/jsqrcode/grid.js"></script>
+<script type="text/javascript" src="lib/jsqrcode/version.js"></script>
+<script type="text/javascript" src="lib/jsqrcode/detector.js"></script>
+<script type="text/javascript" src="lib/jsqrcode/formatinf.js"></script>
+<script type="text/javascript" src="lib/jsqrcode/errorlevel.js"></script>
+<script type="text/javascript" src="lib/jsqrcode/bitmat.js"></script>
+<script type="text/javascript" src="lib/jsqrcode/datablock.js"></script>
+<script type="text/javascript" src="lib/jsqrcode/bmparser.js"></script>
+<script type="text/javascript" src="lib/jsqrcode/datamask.js"></script>
+<script type="text/javascript" src="lib/jsqrcode/rsdecoder.js"></script>
+<script type="text/javascript" src="lib/jsqrcode/gf256poly.js"></script>
+<script type="text/javascript" src="lib/jsqrcode/gf256.js"></script>
+<script type="text/javascript" src="lib/jsqrcode/decoder.js"></script>
+<script type="text/javascript" src="lib/jsqrcode/qrcode.js"></script>
+<script type="text/javascript" src="lib/jsqrcode/findpat.js"></script>
+<script type="text/javascript" src="lib/jsqrcode/alignpat.js"></script>
+<script type="text/javascript" src="lib/jsqrcode/databr.js"></script>
+
+
+<script type="text/javascript" src="lib/jquery-2.1.3.min.js"></script>
+<script src="js/generateQR.js"></script>
+<script src="js/getUserMedia.js"></script>
+<script src="js/scanQR.js"></script>
 </body>
 </html>
