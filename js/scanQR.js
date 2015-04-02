@@ -3,6 +3,7 @@ var video_context = video_canvas.getContext('2d');
 var video = document.querySelector("#videoStream");
 
 
+
 function captureToCanvas() {
     try{
         video_canvas.width = video.videoWidth * 1;
@@ -23,8 +24,11 @@ function captureToCanvas() {
 }
 
 function qrDecodeSuccess(data) {
-    alert(data);
+    //alert("test");
+    document.getElementById("qrResults").innerHTML = data;
+    setTimeout(captureToCanvas, 100);
 }
 
 qrcode.callback = qrDecodeSuccess;
+
 setTimeout(captureToCanvas, 100);
